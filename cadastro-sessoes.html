@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieSTAR - Criar Sessão</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <header id="header-nav"></header>
+  <main class="container my-5" style="max-width: 650px;">
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-header bg-primary text-white text-center fw-bold fs-4 rounded-top-4">
+        🕒 Criar Nova Sessão
+      </div>
+      <form id="form-sessao" class="card-body p-4 p-md-5">
+        <div class="mb-3">
+          <label class="form-label fw-bold">Filme</label>
+          <select id="select-filme" class="form-select form-select-lg" required>
+            <option value="">Selecione o filme...</option>
+          </select>
+        </div>
+        
+        <div class="mb-4">
+          <label class="form-label fw-bold">Sala</label>
+          <select id="select-sala" class="form-select form-select-lg" required>
+            <option value="">Selecione a sala...</option>
+          </select>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label class="form-label fw-bold d-block">Idioma</label>
+            <div class="btn-group w-100" role="group">
+              <input type="radio" class="btn-check" name="idioma" id="idDublado" value="Dublado" checked>
+              <label class="btn btn-outline-info" for="idDublado">Dublado</label>
+              <input type="radio" class="btn-check" name="idioma" id="idLegendado" value="Legendado">
+              <label class="btn btn-outline-info" for="idLegendado">Legendado</label>
+            </div>
+          </div>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <label class="form-label fw-bold d-block">Formato</label>
+            <div class="btn-group w-100" role="group">
+              <input type="radio" class="btn-check" name="formato" id="form2D" value="2D" checked>
+              <label class="btn btn-outline-danger" for="form2D">2D</label>
+              <input type="radio" class="btn-check" name="formato" id="form3D" value="3D">
+              <label class="btn btn-outline-danger" for="form3D">3D</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label class="form-label fw-bold">Data e Hora</label>
+            <input type="datetime-local" id="dataHora" class="form-control" required>
+          </div>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <label class="form-label fw-bold">Preço do Ingresso (R$)</label>
+            <input type="number" id="preco" step="0.01" class="form-control" placeholder="Ex: 35.00" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 fw-bold py-2 fs-5 rounded-pill shadow">Salvar Sessão</button>
+      </form>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/pages/cadastro-sessoes.js"></script>
+</body>
+</html>

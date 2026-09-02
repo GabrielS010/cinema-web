@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieSTAR - Gestão de Cinema</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .hero-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header-nav"></header>
+
+    <main class="container py-4 text-center">
+      <div
+        class="p-5 mb-5 text-white rounded-5 shadow-lg hero-bg border border-secondary"
+      >
+        <h1 class="display-3 fw-bold mb-3">
+          Bem-vindo ao <span class="text-warning">MovieSTAR</span> 🌟
+        </h1>
+        <p class="fs-5 text-light opacity-75 mb-4">
+          O sistema definitivo de gestão de filmes, salas e bilheteria.
+        </p>
+
+        <a
+          href="sessoes.html"
+          class="btn btn-warning fw-bold fs-6 fs-md-5 px-4 py-2 py-md-3 rounded-pill shadow text-nowrap"
+        >
+          🎟️ Ver Sessões Hoje
+        </a>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-md-3">
+          <a
+            href="cadastro-filmes.html"
+            class="btn btn-outline-primary w-100 p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-center"
+          >
+            <span class="fs-1 mb-2">🎬</span>
+            <span class="fw-bold fs-5">Novo Filme</span>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a
+            href="cadastro-salas.html"
+            class="btn btn-outline-info w-100 p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-center"
+          >
+            <span class="fs-1 mb-2">🏛️</span>
+            <span class="fw-bold fs-5">Nova Sala</span>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a
+            href="cadastro-sessoes.html"
+            class="btn btn-outline-warning w-100 p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-center"
+          >
+            <span class="fs-1 mb-2">🕒</span>
+            <span class="fw-bold fs-5">Criar Sessão</span>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a
+            href="venda-ingressos.html"
+            class="btn btn-success text-white w-100 p-4 rounded-4 shadow-lg h-100 d-flex flex-column justify-content-center border-0"
+          >
+            <span class="fs-1 mb-2">💰</span>
+            <span class="fw-bold fs-5">Caixa / Vender</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+      import { carregarNavbar } from "./js/components/navbar.js";
+      carregarNavbar();
+    </script>
+  </body>
+</html>
