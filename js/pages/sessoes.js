@@ -12,6 +12,7 @@ class SessoesController {
     const sessoes = StorageService.buscar('sessoes');
     const filmes = StorageService.buscar('filmes');
     const salas = StorageService.buscar('salas');
+    const ingressos = StorageService.buscar('ingressos');
 
     if (sessoes.length === 0) {
       this.container.innerHTML = `
@@ -26,6 +27,10 @@ class SessoesController {
     this.container.innerHTML = sessoes.map(sessao => {
       const filme = filmes.find(f => f.id === sessao.filmeId);
       const sala = salas.find(s => s.id === sessao.salaId);
+      
+      const capacidadeTotal = sala ? sala.capacidade : 32;
+      const ingressosVendidos = ingressos.filter(i => i.sessaoId === sessao.id).length;
+      const vagasRestantes = Math.max(0, capacidadeTotal - ingressosVendidos);
 
       return `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -35,6 +40,7 @@ class SessoesController {
               <h5 class="card-title fw-bold text-light">${filme ? filme.titulo : 'Desconhecido'}</h5>
               <p class="card-text text-secondary mb-1"><i class="bi bi-door-open me-1"></i> ${sala ? sala.nome : 'N/A'}</p>
               <p class="card-text text-secondary mb-1"><i class="bi bi-clock me-1"></i> ${new Date(sessao.dataHora).toLocaleString('pt-BR')}</p>
+              <p class="card-text text-info small mb-2"><i class="bi bi-people me-1"></i> Vagas restantes: <strong>${vagasRestantes}</strong></p>
               <p class="card-text text-primary fw-bold fs-5 mt-auto mb-3">R$ ${Number(sessao.preco).toFixed(2)}</p>
               <a href="venda-ingressos.html?sessaoId=${sessao.id}" class="btn btn-primary w-100 fw-bold">
                 <i class="bi bi-cart-plus me-1"></i>Comprar

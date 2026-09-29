@@ -35,19 +35,23 @@
           </div>
         </div>
 
-        <div class="row mb-5">
-          <div class="col-md-6">
-            <label for="assento" class="form-label fw-semibold">Assento</label>
-            <input type="text" id="assento" class="form-control" required>
+        <div class="mb-4">
+          <label class="form-label fw-semibold d-block mb-2">Selecione o Assento</label>
+          <div class="screen-indicator mb-3">TELA</div>
+          <div id="mapa-assentos" class="seat-grid mb-3"></div>
+          <input type="hidden" id="assento" required>
+          <div class="text-center text-secondary small">
+            Selecionado: <span id="assento-escolhido" class="text-light fw-bold">Nenhum</span>
           </div>
-          <div class="col-md-6 mt-3 mt-md-0">
-            <label for="tipoPagamento" class="form-label fw-semibold">Pagamento</label>
-            <select id="tipoPagamento" class="form-select" required>
-              <option value="Cartão">Cartão</option>
-              <option value="Pix">Pix</option>
-              <option value="Dinheiro">Dinheiro</option>
-            </select>
-          </div>
+        </div>
+
+        <div class="mb-5">
+          <label for="tipoPagamento" class="form-label fw-semibold">Pagamento</label>
+          <select id="tipoPagamento" class="form-select" required>
+            <option value="Cartão">Cartão</option>
+            <option value="Pix">Pix</option>
+            <option value="Dinheiro">Dinheiro</option>
+          </select>
         </div>
 
         <button type="submit" class="btn btn-success w-100 fw-bold py-3 rounded-1">
