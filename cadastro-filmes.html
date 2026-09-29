@@ -3,87 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MovieSTAR - Cadastrar Filme</title>
+  <title>Cadastrar Filme - CineBox</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="bg-dark text-light">
   <header id="header-nav"></header>
-  <main class="container my-5" style="max-width: 700px;">
-    <div class="card shadow-lg border-0 rounded-4">
-      <div class="card-header bg-warning text-dark text-center fw-bold fs-4 rounded-top-4">
-        🎬 Cadastrar Novo Filme
-      </div>
-      <form id="form-filme" class="card-body p-4 p-md-5">
-        <div class="mb-3">
-          <label class="form-label fw-bold">Título do Filme</label>
-          <input type="text" id="titulo" class="form-control form-control-lg" placeholder="Ex: Vingadores" required>
-        </div>
-        
-        <div class="mb-4">
-          <label class="form-label fw-bold d-block">Gênero</label>
-          <div class="btn-group flex-wrap w-100" role="group">
-            <input type="radio" class="btn-check" name="genero" id="genAcao" value="Ação" checked>
-            <label class="btn btn-outline-primary" for="genAcao">Ação</label>
-            <input type="radio" class="btn-check" name="genero" id="genComedia" value="Comédia">
-            <label class="btn btn-outline-primary" for="genComedia">Comédia</label>
-            <input type="radio" class="btn-check" name="genero" id="genDrama" value="Drama">
-            <label class="btn btn-outline-primary" for="genDrama">Drama</label>
-            <input type="radio" class="btn-check" name="genero" id="genTerror" value="Terror">
-            <label class="btn btn-outline-primary" for="genTerror">Terror</label>
-            <input type="radio" class="btn-check" name="genero" id="genFiccao" value="Ficção">
-            <label class="btn btn-outline-primary" for="genFiccao">Ficção</label>
+
+  <main class="container py-5" style="max-width: 800px;">
+    <section class="card card-custom p-4 p-md-5">
+      <h2 class="fw-bold mb-4 pb-2 border-bottom border-secondary">
+        <i class="bi bi-plus-square me-2 text-primary"></i>Cadastrar Filme
+      </h2>
+      
+      <form id="form-filme">
+        <div class="row mb-4">
+          <div class="col-md-7">
+            <label for="titulo" class="form-label fw-semibold">Título do Filme</label>
+            <input type="text" id="titulo" class="form-control" required>
+          </div>
+          <div class="col-md-5 mt-3 mt-md-0">
+            <label for="genero" class="form-label fw-semibold">Gênero</label>
+            <select id="genero" class="form-select" required>
+              <option value="">Selecione o gênero...</option>
+              <option value="Ação">Ação</option>
+              <option value="Animação">Animação</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Comédia">Comédia</option>
+              <option value="Documentário">Documentário</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasia">Fantasia</option>
+              <option value="Ficção Científica">Ficção Científica</option>
+              <option value="Musical">Musical</option>
+              <option value="Romance">Romance</option>
+              <option value="Suspense">Suspense</option>
+              <option value="Terror">Terror</option>
+            </select>
           </div>
         </div>
 
-<div class="mb-4">
-          <label class="form-label fw-bold d-block">Classificação Indicativa</label>
+        <fieldset class="mb-4">
+          <legend class="fs-6 fw-semibold">Classificação Indicativa</legend>
           <div class="btn-group w-100" role="group">
             <input type="radio" class="btn-check" name="classificacao" id="clasLivre" value="Livre" checked>
-            <label class="btn btn-outline-success" for="clasLivre">Livre</label>
+            <label class="btn btn-outline-success fw-bold" for="clasLivre">Livre</label>
             
             <input type="radio" class="btn-check" name="classificacao" id="clas10" value="10 anos">
-            <label class="btn btn-outline-info" for="clas10">10</label>
+            <label class="btn btn-outline-info fw-bold" for="clas10">10</label>
             
             <input type="radio" class="btn-check" name="classificacao" id="clas12" value="12 anos">
-            <label class="btn btn-outline-warning" for="clas12">12</label>
+            <label class="btn btn-outline-warning fw-bold" for="clas12">12</label>
             
             <input type="radio" class="btn-check" name="classificacao" id="clas14" value="14 anos">
-            <label class="btn btn-outline-primary" for="clas14">14</label>
+            <label class="btn btn-outline-orange fw-bold" for="clas14">14</label>
             
             <input type="radio" class="btn-check" name="classificacao" id="clas16" value="16 anos">
-            <label class="btn btn-outline-danger" for="clas16">16</label>
+            <label class="btn btn-outline-danger fw-bold" for="clas16">16</label>
             
-            <!-- Correção do 18 anos aqui em baixo! -->
             <input type="radio" class="btn-check" name="classificacao" id="clas18" value="18 anos">
-            <label class="btn btn-outline-secondary fw-bold" for="clas18">18</label>
+            <label class="btn btn-outline-light fw-bold" for="clas18">18</label>
           </div>
-        </div>
+        </fieldset>
 
-        <div class="mb-3">
-          <label class="form-label fw-bold">Descrição</label>
-          <textarea id="descricao" class="form-control" rows="3" placeholder="Sinopse..." required></textarea>
+        <div class="mb-4">
+          <label for="descricao" class="form-label fw-semibold">Sinopse</label>
+          <textarea id="descricao" class="form-control" rows="3" required></textarea>
         </div>
         
-        <div class="row mb-3">
+        <div class="row g-3 mb-4">
           <div class="col-md-6">
-            <label class="form-label fw-bold">Duração (min)</label>
-            <input type="number" id="duracao" class="form-control" placeholder="120" required>
+            <label for="duracao" class="form-label fw-semibold">Duração (min)</label>
+            <input type="number" id="duracao" class="form-control" required>
           </div>
           <div class="col-md-6">
-            <label class="form-label fw-bold">Data de Estreia</label>
+            <label for="dataEstreia" class="form-label fw-semibold">Data de Estreia</label>
             <input type="date" id="dataEstreia" class="form-control" required>
           </div>
         </div>
 
-        <div class="mb-4">
-          <label class="form-label fw-bold">URL do Cartaz</label>
-          <input type="url" id="imagem" class="form-control" placeholder="https://link-da-imagem.jpg" required>
+        <div class="mb-5">
+          <label for="imagem" class="form-label fw-semibold">URL do Cartaz</label>
+          <div class="input-group">
+            <span class="input-group-text bg-dark text-secondary border-secondary"><i class="bi bi-link-45deg"></i></span>
+            <input type="url" id="imagem" class="form-control" required>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-warning w-100 fw-bold py-2 fs-5 text-dark rounded-pill shadow">Salvar Filme</button>
+        <button type="submit" class="btn btn-primary w-100 fw-bold py-3 rounded-1">
+          <i class="bi bi-floppy me-2"></i>Salvar Filme
+        </button>
       </form>
-    </div>
+    </section>
   </main>
+
   <script type="module" src="./js/pages/cadastro-filmes.js"></script>
 </body>
 </html>
