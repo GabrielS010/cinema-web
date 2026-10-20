@@ -1,30 +1,36 @@
+/* Importação da fonte externa Montserrat diretamente do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+/* Definição de Variáveis Globais (CSS Custom Properties) no elemento raiz :root */
 :root {
-  --cine-bg: #000000;
-  --cine-surface: #1a1a1a;
-  --cine-red: #e21a2c;
-  --cine-red-hover: #b81523;
-  --cine-text: #ffffff;
+  --cine-bg: #000000;         /* Cor de fundo principal (preto) */
+  --cine-surface: #1a1a1a;    /* Cor de fundo para cards e superfícies destacadas */
+  --cine-red: #e21a2c;        /* Cor primária da marca (vermelho cinema) */
+  --cine-red-hover: #b81523;  /* Cor primária em estado de hover/interação */
+  --cine-text: #ffffff;       /* Cor padrão para textos (branco) */
 }
 
+/* Configurações globais do corpo da página (reset/base) */
 body {
   background-color: var(--cine-bg);
   color: var(--cine-text);
-  font-family: 'Montserrat', system-ui, sans-serif;
+  font-family: 'Montserrat', system-ui, sans-serif; /* Aplica a fonte importada com fallbacks */
 }
 
+/* Sobrescrita dos botões primários do Bootstrap para utilizar a paleta da marca */
 .btn-primary {
   background-color: var(--cine-red);
   border-color: var(--cine-red);
   color: #fff;
 }
 
+/* Estado de foco e clique dos botões primários (!important garante a aplicação sobre as regras do Bootstrap) */
 .btn-primary:hover, .btn-primary:active {
   background-color: var(--cine-red-hover) !important;
   border-color: var(--cine-red-hover) !important;
 }
 
+/* Botão com estilo de contorno (outline) na cor primária */
 .btn-outline-primary {
   color: var(--cine-red);
   border-color: var(--cine-red);
@@ -35,6 +41,7 @@ body {
   color: #fff;
 }
 
+/* Sobrescrita de utilitários de cor do Bootstrap */
 .text-primary {
   color: var(--cine-red) !important;
 }
@@ -43,43 +50,51 @@ body {
   background-color: var(--cine-red) !important;
 }
 
+/* Card customizado com transição suave em foco/hover */
 .card-custom {
   background-color: var(--cine-surface);
   border: 1px solid #333;
   border-radius: 8px;
+  /* Transição configurada para animação de subida e borda */
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+/* Efeito de elevação do card ao passar o ponteiro do mouse (Hover Effect) */
 .card-custom:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px); /* Eleva o card em 4 pixels */
   border-color: var(--cine-red);
 }
 
+/* Banner de destaque da página inicial (Hero Section) */
 .hero-section {
-  background: linear-gradient(to right, #111 0%, #1a1a1a 100%);
-  border-left: 4px solid var(--cine-red);
+  background: linear-gradient(to right, #111 0%, #1a1a1a 100%); /* Gradiente sutil da esquerda pra direita */
+  border-left: 4px solid var(--cine-red);                       /* Detalhe de borda lateral vermelha */
   border-radius: 8px;
   padding: 4rem 2rem;
 }
 
+/* Customização visual dos campos de formulário e menus de seleção */
 .form-control, .form-select {
   background-color: #222;
   border: 1px solid #444;
   color: #fff;
 }
 
+/* Estilo de foco para os inputs quando o usuário clica ou digita */
 .form-control:focus, .form-select:focus {
   background-color: #2b2b2b;
   border-color: var(--cine-red);
-  box-shadow: 0 0 0 0.25rem rgba(226, 26, 44, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(226, 26, 44, 0.25); /* Anel de iluminação vermelho sutil */
   color: #fff;
 }
 
+/* Botão customizado para a Classificação Indicativa de 14 anos */
 .btn-outline-orange {
   color: #fd7e14;
   border-color: #fd7e14;
 }
 
+/* Estilo para quando a opção de 14 anos estiver selecionada (checked) */
 .btn-check:checked + .btn-outline-orange, 
 .btn-outline-orange:hover {
   background-color: #fd7e14;
@@ -87,14 +102,16 @@ body {
   color: #fff;
 }
 
+/* CSS Grid para estruturação da matriz do mapa de assentos da sala */
 .seat-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(10, 1fr); /* Cria 10 colunas idênticas e proporcionais */
+  gap: 6px;                                /* Espaçamento de 6px entre cada poltrona */
   max-width: 500px;
   margin: 0 auto;
 }
 
+/* Estilização individual dos botões de poltrona */
 .seat {
   background-color: #2b2b2b;
   border: 1px solid #444;
@@ -107,22 +124,26 @@ body {
   transition: all 0.2s ease;
 }
 
+/* Borda em destaque na poltrona ao passar o mouse (se a poltrona não estiver desabilitada) */
 .seat:hover:not(:disabled) {
   border-color: var(--cine-red);
 }
 
+/* Classe aplicada via JavaScript quando a poltrona é selecionada pelo usuário */
 .seat.selected {
-  background-color: #198754 !important;
+  background-color: #198754 !important; /* Destaque em verde (Bootstrap success) */
   border-color: #198754 !important;
 }
 
+/* Estado da poltrona quando já foi vendida (disabled) */
 .seat:disabled {
   background-color: #111;
   border-color: #222;
   color: #555;
-  cursor: not-allowed;
+  cursor: not-allowed; /* Altera o ponteiro para indicar que a poltrona está indisponível */
 }
 
+/* Indicador visual da tela do cinema acima da grade de poltronas */
 .screen-indicator {
   background: linear-gradient(to bottom, #444, #111);
   color: #888;

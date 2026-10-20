@@ -9,14 +9,20 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="bg-dark text-light">
+  <!-- Navbar modularizada -->
   <header id="header-nav"></header>
 
+  <!-- Container principal limitado a 650px para centralizar e focar a experiência do formulário de checkout -->
   <main class="container py-5" style="max-width: 650px;">
     <section class="card card-custom p-4 p-md-5">
       <h2 class="fw-bold mb-4 pb-2 border-bottom border-secondary">
         <i class="bi bi-ticket-detailed me-2 text-primary"></i>Vender Ingresso
       </h2>
+      
+      <!-- Formulário de Venda de Ingresso com captura de evento submit no JS -->
       <form id="form-ingresso">
+        
+        <!-- Campo Select: Opções de Sessões cadastradas alimentadas via JS -->
         <div class="mb-4">
           <label for="select-sessao" class="form-label fw-semibold">Sessão</label>
           <select id="select-sessao" class="form-select" required>
@@ -24,6 +30,7 @@
           </select>
         </div>
         
+        <!-- Dados do Comprador: Nome e CPF organizados em linha responsiva (2 colunas em telas médias/grandes) -->
         <div class="row mb-4">
           <div class="col-md-6">
             <label for="nomeCliente" class="form-label fw-semibold">Nome do Cliente</label>
@@ -35,16 +42,26 @@
           </div>
         </div>
 
+        <!-- Seção do Mapa Interativo de Poltronas -->
         <div class="mb-4">
           <label class="form-label fw-semibold d-block mb-2">Selecione o Assento</label>
+          
+          <!-- Indicador visual da Tela do Cinema -->
           <div class="screen-indicator mb-3">TELA</div>
+          
+          <!-- Div Alvo: O JavaScript gera aqui a malha/grid de assentos de acordo com a sala selecionada -->
           <div id="mapa-assentos" class="seat-grid mb-3"></div>
+          
+          <!-- Input Hidden: Armazena o valor do assento clicado para ser validado e enviado junto no submit do formulário -->
           <input type="hidden" id="assento" required>
+          
+          <!-- Feedback visual ao usuário da poltrona selecionada -->
           <div class="text-center text-secondary small">
             Selecionado: <span id="assento-escolhido" class="text-light fw-bold">Nenhum</span>
           </div>
         </div>
 
+        <!-- Campo Select: Forma de Pagamento -->
         <div class="mb-5">
           <label for="tipoPagamento" class="form-label fw-semibold">Pagamento</label>
           <select id="tipoPagamento" class="form-select" required>
@@ -54,6 +71,7 @@
           </select>
         </div>
 
+        <!-- Botão de submissão do formulário -->
         <button type="submit" class="btn btn-success w-100 fw-bold py-3 rounded-1">
           <i class="bi bi-cart-check me-2"></i>Confirmar Venda
         </button>
@@ -61,6 +79,7 @@
     </section>
   </main>
 
+  <!-- Script específico para gerenciar as seleções, o mapa de assentos e a submissão de vendas -->
   <script type="module" src="./js/pages/venda-ingressos.js"></script>
 </body>
 </html>

@@ -9,20 +9,28 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="bg-dark text-light">
+  <!-- Container para injeção dinâmica da barra de navegação -->
   <header id="header-nav"></header>
 
+  <!-- Container centralizado (max-width: 650px) para focar na criação de sessão -->
   <main class="container py-5" style="max-width: 650px;">
     <section class="card card-custom p-4 p-md-5">
       <h2 class="fw-bold mb-4 pb-2 border-bottom border-secondary">
         <i class="bi bi-clock-history me-2 text-primary"></i>Criar Nova Sessão
       </h2>
+      
+      <!-- Formulário para vinculação de filme, sala e horário -->
       <form id="form-sessao">
+        
+        <!-- Select populado via JavaScript com os filmes já cadastrados no LocalStorage -->
         <div class="mb-4">
           <label for="select-filme" class="form-label fw-semibold">Filme</label>
           <select id="select-filme" class="form-select" required>
             <option value="">Selecione o filme...</option>
           </select>
         </div>
+
+        <!-- Select populado via JavaScript com as salas disponíveis -->
         <div class="mb-4">
           <label for="select-sala" class="form-label fw-semibold">Sala</label>
           <select id="select-sala" class="form-select" required>
@@ -30,7 +38,10 @@
           </select>
         </div>
         
+        <!-- Grupo de seleções rádio estilizadas como botões (Button Groups) -->
         <div class="row mb-4">
+          
+          <!-- Escolha de Idioma (Dublado / Legendado) -->
           <div class="col-md-6">
             <label class="form-label fw-semibold d-block">Idioma</label>
             <div class="btn-group w-100" role="group">
@@ -40,6 +51,8 @@
               <label class="btn btn-outline-secondary" for="idLegendado">Legendado</label>
             </div>
           </div>
+
+          <!-- Escolha de Formato da Exibição (2D / 3D) -->
           <div class="col-md-6 mt-3 mt-md-0">
             <label class="form-label fw-semibold d-block">Formato</label>
             <div class="btn-group w-100" role="group">
@@ -51,17 +64,22 @@
           </div>
         </div>
 
+        <!-- Linha com Data/Hora e Valor do Ingresso -->
         <div class="row mb-5">
+          <!-- Input nativo tipo datetime-local para captura precisa de data e horário -->
           <div class="col-md-6">
             <label for="dataHora" class="form-label fw-semibold">Data e Hora</label>
             <input type="datetime-local" id="dataHora" class="form-control" required>
           </div>
+
+          <!-- Input numérico com passo decimal (step="0.01") para formato de moeda/preço -->
           <div class="col-md-6 mt-3 mt-md-0">
             <label for="preco" class="form-label fw-semibold">Preço (R$)</label>
             <input type="number" id="preco" step="0.01" class="form-control" required>
           </div>
         </div>
 
+        <!-- Botão de submissão do formulário -->
         <button type="submit" class="btn btn-primary w-100 fw-bold py-3 rounded-1">
           <i class="bi bi-floppy me-2"></i>Salvar Sessão
         </button>
@@ -69,6 +87,7 @@
     </section>
   </main>
 
+  <!-- Script específico para gerenciar os dados e a persistência da página de sessões -->
   <script type="module" src="./js/pages/cadastro-sessoes.js"></script>
 </body>
 </html>

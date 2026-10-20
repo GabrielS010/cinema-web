@@ -1,7 +1,10 @@
+// Função exportada responsável pela injeção da barra de navegação global
 export function carregarNavbar() {
+  // Procura o elemento container do header
   const header = document.getElementById('header-nav');
   if (!header) return;
 
+  // Injeta a estrutura de layout Bootstrap do menu
   header.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-dark" style="background-color: #111;">
       <div class="container">
@@ -29,15 +32,18 @@ export function carregarNavbar() {
     </nav>
   `;
 
+  // Descobre qual página está aberta no navegador no momento
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('#nav-links .nav-link');
   
+  // Compara o atributo href de cada link com a URL atual e adiciona as classes de destaque ativo
   navLinks.forEach(link => {
     if (link.getAttribute('href') === currentPath) {
       link.classList.add('active', 'fw-bold', 'text-primary'); 
     }
   });
 
+  // Carregamento dinâmico do Script do Bootstrap caso ele ainda não exista no escopo global do documento
   if (typeof bootstrap === 'undefined') {
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js';

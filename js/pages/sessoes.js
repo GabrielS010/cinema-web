@@ -4,16 +4,19 @@ import { carregarNavbar } from '../components/navbar.js';
 class SessoesController {
   constructor() {
     carregarNavbar();
+    // Elemento HTML que receberá a renderização dos cards
     this.container = document.getElementById('container-sessoes');
     if (this.container) this.renderizarSessoes();
   }
 
   renderizarSessoes() {
+    // Carrega todas as coleções do LocalStorage para cruzamento de dados
     const sessoes = StorageService.buscar('sessoes');
     const filmes = StorageService.buscar('filmes');
     const salas = StorageService.buscar('salas');
     const ingressos = StorageService.buscar('ingressos');
 
+    // Estado de Fallback: Caso não haja sessões, exibe uma mensagem informativa
     if (sessoes.length === 0) {
       this.container.innerHTML = `
         <div class="col-12 text-center py-5">
@@ -24,14 +27,18 @@ class SessoesController {
       return;
     }
 
+    // Mapeamento e renderização dinâmica dos cards
     this.container.innerHTML = sessoes.map(sessao => {
+      // Faz o cruzamento (JOIN em memória) dos dados da sessão com seu filme e sua sala correspondentes
       const filme = filmes.find(f => f.id === sessao.filmeId);
       const sala = salas.find(s => s.id === sessao.salaId);
       
+      // Cálculo de Vagas Disponíveis: Capacidade da Sala (-) Ingressos já comprados para esta sessão
       const capacidadeTotal = sala ? sala.capacidade : 32;
       const ingressosVendidos = ingressos.filter(i => i.sessaoId === sessao.id).length;
       const vagasRestantes = Math.max(0, capacidadeTotal - ingressosVendidos);
 
+      // Retorna a estrutura HTML com os dados formatados usando Template Literals
       return `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card card-custom h-100">
@@ -42,6 +49,7 @@ class SessoesController {
               <p class="card-text text-secondary mb-1"><i class="bi bi-clock me-1"></i> ${new Date(sessao.dataHora).toLocaleString('pt-BR')}</p>
               <p class="card-text text-info small mb-2"><i class="bi bi-people me-1"></i> Vagas restantes: <strong>${vagasRestantes}</strong></p>
               <p class="card-text text-primary fw-bold fs-5 mt-auto mb-3">R$ ${Number(sessao.preco).toFixed(2)}</p>
+              <!-- Botão envia o ID da sessão selecionada na URL como parâmetro Query String -->
               <a href="venda-ingressos.html?sessaoId=${sessao.id}" class="btn btn-primary w-100 fw-bold">
                 <i class="bi bi-cart-plus me-1"></i>Comprar
               </a>
@@ -49,7 +57,7 @@ class SessoesController {
           </div>
         </div>
       `;
-    }).join('');
+    }).join(''); // Agrupa o array de strings em uma única string HTML
   }
 }
 

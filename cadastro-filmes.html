@@ -9,15 +9,20 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="bg-dark text-light">
+  <!-- Container para injeção da Navbar -->
   <header id="header-nav"></header>
 
+  <!-- Container com largura máxima estendida (max-width: 800px) para acomodar a maior quantidade de campos do formulário de filmes -->
   <main class="container py-5" style="max-width: 800px;">
     <section class="card card-custom p-4 p-md-5">
       <h2 class="fw-bold mb-4 pb-2 border-bottom border-secondary">
         <i class="bi bi-plus-square me-2 text-primary"></i>Cadastrar Filme
       </h2>
       
+      <!-- Formulário de cadastro de títulos no catálogo -->
       <form id="form-filme">
+        
+        <!-- Linha responsiva: Título e Gênero do filme -->
         <div class="row mb-4">
           <div class="col-md-7">
             <label for="titulo" class="form-label fw-semibold">Título do Filme</label>
@@ -43,6 +48,7 @@
           </div>
         </div>
 
+        <!-- Elemento de campo agrupado (<fieldset>) para selecionar a Classificação Indicativa de forma semântica -->
         <fieldset class="mb-4">
           <legend class="fs-6 fw-semibold">Classificação Indicativa</legend>
           <div class="btn-group w-100" role="group">
@@ -66,11 +72,13 @@
           </div>
         </fieldset>
 
+        <!-- Campo Textarea para textos longos (Sinopse) -->
         <div class="mb-4">
           <label for="descricao" class="form-label fw-semibold">Sinopse</label>
           <textarea id="descricao" class="form-control" rows="3" required></textarea>
         </div>
         
+        <!-- Linha dividida: Duração e Data de Estreia -->
         <div class="row g-3 mb-4">
           <div class="col-md-6">
             <label for="duracao" class="form-label fw-semibold">Duração (min)</label>
@@ -82,6 +90,7 @@
           </div>
         </div>
 
+        <!-- Input com pré-agrupamento visual (input-group) para inserção de Link/URL da capa do filme -->
         <div class="mb-5">
           <label for="imagem" class="form-label fw-semibold">URL do Cartaz</label>
           <div class="input-group">
@@ -90,6 +99,7 @@
           </div>
         </div>
 
+        <!-- Botão Submit do formulário de filmes -->
         <button type="submit" class="btn btn-primary w-100 fw-bold py-3 rounded-1">
           <i class="bi bi-floppy me-2"></i>Salvar Filme
         </button>
@@ -97,6 +107,7 @@
     </section>
   </main>
 
+  <!-- Script específico para gerenciar o formulário e salvamento do modelo de Filme -->
   <script type="module" src="./js/pages/cadastro-filmes.js"></script>
 </body>
 </html>

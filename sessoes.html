@@ -9,15 +9,21 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="bg-dark text-light">
+  <!-- Container de injeção da Navbar modular -->
   <header id="header-nav"></header>
 
+  <!-- Área principal de exibição do catálogo de horários -->
   <main class="container py-5">
+    <!-- Título da página com separador em borda inferior -->
     <h2 class="fw-bold mb-4 border-bottom border-secondary pb-2">
       <i class="bi bi-film me-2 text-primary"></i>Sessões Disponíveis
     </h2>
+
+    <!-- Container Alvo: Esta div com id="container-sessoes" será populada via DOM Manipulation pelo JS -->
     <div id="container-sessoes" class="row g-4"></div>
   </main>
 
+  <!-- Importação do script de regra de negócio específico da página de sessões -->
   <script type="module" src="./js/pages/sessoes.js"></script>
 </body>
 </html>
